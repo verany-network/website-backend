@@ -1,7 +1,6 @@
 package net.verany.websocket;
 
-import net.verany.websocket.WebSocketClient;
-import net.verany.websocket.commands.Command;
+import net.verany.commands.Command;
 import org.java_websocket.WebSocket;
 import org.json.JSONObject;
 

@@ -1,12 +1,13 @@
-package net.verany.websocket;
+package net.verany;
 
 import com.google.gson.Gson;
-import net.verany.websocket.commands.AuthCommand;
-import net.verany.websocket.database.DatabaseManager;
+import net.verany.commands.AuthCommand;
+import net.verany.database.DatabaseManager;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.SneakyThrows;
-import org.bson.Document;
+import net.verany.websocket.SocketServer;
+import net.verany.websocket.WebSocketManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;

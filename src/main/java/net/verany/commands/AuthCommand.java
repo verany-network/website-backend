@@ -1,4 +1,4 @@
-package net.verany.websocket.commands;
+package net.verany.commands;
 
 import net.verany.websocket.WebSocketRequest;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package net.verany.websocket.database;
+package net.verany.database;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
