@@ -2,3 +2,5 @@
 /target
 /src/main/resources/data.json
 Verany-Web-Backend.iml
+node_modules
+vendor

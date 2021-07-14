@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include(ROOT_PATH."/app/views/forms/html.phtml")?>
+</head>
+<body class="page-body">
+<!-- navbar -->
+<?php include(ROOT_PATH."/app/views/forms/nav.phtml")?>
+<!-- /.navbar -->
+
+<!-- main content -->
+<main class="main-content gradient-lg position-relative">
+
+    <!-- overlay -->
+    <div class="overlay pe-n br-n bp-c bs-c o-30" style="background-image: url(/assets/img/bg/bg_shape.png);"></div>
+    <!-- /.overlay -->
+
+    <!-- content area -->
+    <div class="content-section help_c text-light">
+        <div class="container">
+            <header class="header mb-8">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb-product breadcrumb breadcrumb-nowrap breadcrumb-angle bg-transparent pl-0 pr-0 mb-0">
+                        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Apply</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Apply Center</li>
+                    </ol>
+                </nav>
+            </header>
+            <div class="position-relative">
+                <div class="row mb-8 mb-lg-10">
+                    <div class="col-12">
+                        <header class="text-center mb-6 mb-md-8">
+                            <h2 class="mb-0">Become part of our team!</h2>
+                            <hr class="w-10 border-top-2 mt-5 mb-6 mx-auto border-warning">
+                        </header>
+                        <div class="help_m row gutters-y text-center">
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/builder">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-globe-americas lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Builder</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/content">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-book lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Content</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/designer">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-palette lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Designer</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/developer">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-code lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Developer</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/helper">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-headset lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Helper</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/partner">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-handshake lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Partner</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/promoter">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-chart-line lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">Promoter</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="/apply/vip-plus">
+                                    <div class="card help_card">
+                                        <div class="card-body py-7">
+                                            <span class="fas fa-star lead-7 d-block mb-3"></span>
+                                            <h5 class="card-title mb-0">VIP+</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content area -->
+
+</main>
+
+
+<!-- footer -->
+<?php include(ROOT_PATH."/app/views/forms/footer.phtml")?>
+<!-- /.footer -->
+
+<!-- sign in -->
+<div style="overflox-y: hidden" class="modal fade" id="userLogin" tabindex="-1" role="dialog" aria-labelledby="userLoginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="userLoginTitle">Sign in</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="input-transparent" action="" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-secondary" name="log_username" autocomplete="off" placeholder="Minecraft Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control border-secondary" name="log_password" autocomplete="off" placeholder="Password">
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" checked="" id="rememberMeCheck">
+                            <label class="custom-control-label" for="rememberMeCheck">Remember me</label>
+                        </div>
+                        <a class="small-3" href="#">Forgot password?</a>
+                    </div>
+                    <div class="form-group mt-6">
+                        <button class="btn btn-block btn-light" type="submit">Sign in</button>
+                    </div>
+                </form>
+                <span class="small">Don't have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#userSignUp">Create an account</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.sign in -->
+<!-- sign up -->
+<div class="modal fade" id="userSignUp" tabindex="-1" role="dialog" aria-labelledby="userSignUpTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="userSignUp">Sign up</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" class="input-transparent">
+                    <div class="form-group">
+                        <input type="email" class="form-control border-secondary" name="reg_email" autocomplete="off" placeholder="E-Mail Adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control border-secondary" name="reg_password" autocomplete="off" placeholder="Password" required>
+                    </div>
+                    <div class="form-group mb-0">
+                        <input type="text" class="form-control border-secondary" name="reg_key" autocomplete="off" placeholder="Enter Your Code" required>
+                        <div class="input-group-append ml-3"></div>
+                    </div>
+                    <div class="form-group mt-6">
+                        <button class="btn btn-block btn-light" type="submit">Sign up</button>
+                    </div>
+                </form>
+                <span class="small">Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#userSignIn" >Log in</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<?php if(false) {
+    ?>
+    <!-- offcanvas-cart -->
+    <div id="offcanvas-cart" class="offcanvas-cart offcanvas text-light h-100 r-0 l-auto d-flex flex-column" data-animation="slideRight">
+        <div>
+            <button type="button" data-toggle="offcanvas-close" class="close float-right ml-4 text-light o-1 fw-100" data-dismiss="offcanvas" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <hr class="border-light o-20 mt-8 mb-4">
+        </div>
+        <div class="offcanvas-cart-body flex-1">
+            <div class="offcanvas-cart-list row align-items-center no-gutters">
+                <div class="ocs-cart-item col-12">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-3 item_img d-none d-sm-block">
+                            <a href="store-product.html"><img class="img bl-3 text-primary" src="./../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                        </div>
+                        <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
+                            <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">VIP (Lifetime)</span></a>
+                            <div class="position-relative lh-1">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ><i class="ti-minus"></i></button>
+                                    <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i class="ti-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row align-items-center h-100 no-gutters">
+                                <div class="ml-auto text-center">
+                                    <a href="#"><i class="far fa-trash-alt"></i></a><br>
+                                    <span class="fw-500 text-warning">30,00 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ocs-cart-item col-12">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-3 item_img d-none d-sm-block">
+                            <a href="store-product.html"><img class="img bl-3 text-primary" src="./../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                        </div>
+                        <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
+                            <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">JoinMe Tokens</span></a>
+                            <div class="position-relative lh-1">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ><i class="ti-minus"></i></button>
+                                    <input class="quantity" min="0" name="quantity" value="10" type="number">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i class="ti-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row align-items-center h-100 no-gutters">
+                                <div class="ml-auto text-center">
+                                    <a href="#"><i class="far fa-trash-alt"></i></a><br>
+                                    <span class="fw-500 text-warning">3,75 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="checkout-order.html" class="btn btn-lg btn-block btn-outline-light">View cart</a>
+        </div>
+    </div>
+    <!-- /.offcanvas-cart -->
+<?php } ?>
+
+<?php include(ROOT_PATH."/app/views/forms/script.phtml")?>
+
+<?php
+if($this->SignUp) { ?>
+    <script>
+        $( document ).ready(function() {
+            $("#SignUp").trigger( "click" );
+        });
+    </script>
+<?php }
+if($this->SignIn) { ?>
+    <script>
+        $( document ).ready(function() {
+            $("#SignIn").trigger( "click" );
+        });
+    </script>
+<?php } ?>
+
+
+</body>
+</html>

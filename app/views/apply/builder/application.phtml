@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include(ROOT_PATH."/app/views/forms/html.phtml")?>
+</head>
+<body class="page-body">
+<!-- navbar -->
+<?php include(ROOT_PATH."/app/views/forms/nav.phtml")?>
+<!-- /.navbar -->
+
+    <!-- main content -->
+    <main class="checkout-order-body main-content gradient-lg position-relative">
+
+      <!-- overlay -->
+      <div class="overlay pe-n br-n bp-c bs-c o-30" style="background-image: url(./../../assets/img/bg/bg_shape.png);"></div>
+      <!-- /.overlay -->
+
+      <!-- content area -->
+      <div class="content-section text-light">
+        <div class="container">
+          <header class="header text-center mb-6">
+            <div class="row gutters-y">
+              <div class="col-12 pt-8">
+                <div class="timeline-horizontal">
+                    <div class="timeline-item flex-1 p-0" data-step="✔">
+                        <div class="pt-8 pb-7 px-2 px-sm-4 border-left border-bottom border-secondary">
+                            <span class="text-uppercase small-3 fw-600">Requirements</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item flex-1  p-0" data-step="✉">
+                        <div class="pt-8 pb-7 px-2 px-sm-4 border-bottom border-secondary">
+                            <span class="text-uppercase small-3 fw-600">Application</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item flex-1 border-secondary p-0" data-step="✎">
+                        <div class="pt-8 pb-7 px-2 px-sm-4 border-bottom border-secondary border-right">
+                            <span class="text-uppercase small-3 fw-600">Contact options</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="position-relative">
+            <div class="row">
+              <div class="col-lg-8 mb-8 mb-lg-0">
+                <div>
+                  <div>
+                    <h4>Application</h4>
+                    <hr class="border-secondary my-4">
+                    <div class="mb-9">
+                      <form method="post" action="" class="input-transparent">
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label class="small-1" for="firstName">First name *</label>
+                            <input  class="form-control" id="firstName" type="text" name="firstName" required="">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label class="small-1" for="lastName">Last name *</label>
+                            <input class="form-control" id="lastName" type="text" name="lastName" required="">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label class="small-1" for="portfolioLink">Imgur / Portfolio link *</label>
+                            <input class="form-control" id="portfolioLink" type="text" name="portfolioLink" required="">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label class="small-1" for="desiredAreas">Desired area *</label>
+                              <select name="desiredArea1" class="form-control" id="country">
+                                <option>Terrain</option>
+                                <option>Details</option>
+                                <option>Structures</option>
+                                <option>Coloring</option>
+                                <option>Armor Stand Editing</option>
+                                <option>Something else</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="small-1" for="country">Desired area(s) *</label>
+                          <select name="desiredArea2" class="form-control" id="country">
+                            <option>Terrain</option>
+                            <option>Details</option>
+                            <option>Structures</option>
+                            <option>Coloring</option>
+                            <option>Armor Stand Editing</option>
+                            <option>Something else</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label class="small-1" for="order_comments">Informations about you</label>
+                          <textarea class="form-control" placeholder="What hobbies do you have besides swimming and cycling? Are you in any club or something like that?" id="order_comments" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label class="small-1" for="order_comments">Your experiences</label>
+                          <textarea class="form-control" placeholder="Have you already had experience in other server or construction teams? How long have you been building? Are there any projects that are particularly well known or that you are particularly proud of? (In the best case with related links)" id="order_comments" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label class="small-1" for="order_comments">Visibility of your maps</label>
+                          <textarea class="form-control" placeholder="Can you find your projects anywhere? (For example plots built on servers like PixelBiester and Cytooxien)" id="order_comments" rows="3"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="archive border border-secondary rounded">
+                  <div class="bg-secondary px-4 py-1"><span class="fw-600 ls-1 text-uppercase lead-1">Application Overview</span></div>
+                  <div class="p-4">
+                    <ul class="list-unstyled small mb-0">
+                      <li class="my-1">
+                        <div class="d-flex small-2 fw-600">
+                          <div>Advertised as a:</div>
+                          <div class="ml-auto text-success">Builder</div>
+                        </div>
+                      </li>
+                      <li class="my-1">
+                        <div class="d-flex small-2 fw-600">
+                          <div>Desired area(s):</div>
+                          <div class="ml-auto">Terrain</div>
+                        </div>
+                      </li>
+                      <li><hr class="my-3 border-secondary"></li>
+                      <li>
+                          <form action="" method="post">
+                              <button type="submit" name="application_button" value="1" class="btn btn-lg btn-block btn-light mt-4 px-3">NEXT</button>
+                          </form>
+                      </li>
+                      <li class="lh-1">
+                        <span class="small-4 text-lt w-100 mt-4 pb-1 d-inline-block">By clicking Apply, you accept our <a href="#" target="_blank" class="text-rp text-primary text-underline">refund policy</a>.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+      <!-- /.content area -->
+
+    </main>
+
+
+<!-- footer -->
+<?php include(ROOT_PATH."/app/views/forms/footer.phtml")?>
+<!-- /.footer -->
+
+<!-- sign in -->
+<div style="overflox-y: hidden" class="modal fade" id="userLogin" tabindex="-1" role="dialog" aria-labelledby="userLoginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="userLoginTitle">Sign in</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="input-transparent" action="" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-secondary" name="log_username" autocomplete="off" placeholder="Minecraft Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control border-secondary" name="log_password" autocomplete="off" placeholder="Password">
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" checked="" id="rememberMeCheck">
+                            <label class="custom-control-label" for="rememberMeCheck">Remember me</label>
+                        </div>
+                        <a class="small-3" href="#">Forgot password?</a>
+                    </div>
+                    <div class="form-group mt-6">
+                        <button class="btn btn-block btn-light" type="submit">Sign in</button>
+                    </div>
+                </form>
+                <span class="small">Don't have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#userSignUp">Create an account</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.sign in -->
+<!-- sign up -->
+<div class="modal fade" id="userSignUp" tabindex="-1" role="dialog" aria-labelledby="userSignUpTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="userSignUp">Sign up</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" class="input-transparent">
+                    <div class="form-group">
+                        <input type="email" class="form-control border-secondary" name="reg_email" autocomplete="off" placeholder="E-Mail Adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control border-secondary" name="reg_password" autocomplete="off" placeholder="Password" required>
+                    </div>
+                    <div class="form-group mb-0">
+                        <input type="text" class="form-control border-secondary" name="reg_key" autocomplete="off" placeholder="Enter Your Code" required>
+                        <div class="input-group-append ml-3"></div>
+                    </div>
+                    <div class="form-group mt-6">
+                        <button class="btn btn-block btn-light" type="submit">Sign up</button>
+                    </div>
+                </form>
+                <span class="small">Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#userSignIn" >Log in</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<?php if(false) {
+    ?>
+    <!-- offcanvas-cart -->
+    <div id="offcanvas-cart" class="offcanvas-cart offcanvas text-light h-100 r-0 l-auto d-flex flex-column" data-animation="slideRight">
+        <div>
+            <button type="button" data-toggle="offcanvas-close" class="close float-right ml-4 text-light o-1 fw-100" data-dismiss="offcanvas" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <hr class="border-light o-20 mt-8 mb-4">
+        </div>
+        <div class="offcanvas-cart-body flex-1">
+            <div class="offcanvas-cart-list row align-items-center no-gutters">
+                <div class="ocs-cart-item col-12">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-3 item_img d-none d-sm-block">
+                            <a href="store-product.html"><img class="img bl-3 text-primary" src="./../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                        </div>
+                        <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
+                            <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">VIP (Lifetime)</span></a>
+                            <div class="position-relative lh-1">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ><i class="ti-minus"></i></button>
+                                    <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i class="ti-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row align-items-center h-100 no-gutters">
+                                <div class="ml-auto text-center">
+                                    <a href="#"><i class="far fa-trash-alt"></i></a><br>
+                                    <span class="fw-500 text-warning">30,00 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ocs-cart-item col-12">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-3 item_img d-none d-sm-block">
+                            <a href="store-product.html"><img class="img bl-3 text-primary" src="./../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                        </div>
+                        <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
+                            <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">JoinMe Tokens</span></a>
+                            <div class="position-relative lh-1">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ><i class="ti-minus"></i></button>
+                                    <input class="quantity" min="0" name="quantity" value="10" type="number">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i class="ti-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row align-items-center h-100 no-gutters">
+                                <div class="ml-auto text-center">
+                                    <a href="#"><i class="far fa-trash-alt"></i></a><br>
+                                    <span class="fw-500 text-warning">3,75 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="checkout-order.html" class="btn btn-lg btn-block btn-outline-light">View cart</a>
+        </div>
+    </div>
+    <!-- /.offcanvas-cart -->
+<?php } ?>
+
+<?php include(ROOT_PATH."/app/views/forms/script.phtml")?>
+
+<?php
+if($this->SignUp) { ?>
+    <script>
+        $( document ).ready(function() {
+            $("#SignUp").trigger( "click" );
+        });
+    </script>
+<?php }
+if($this->SignIn) { ?>
+    <script>
+        $( document ).ready(function() {
+            $("#SignIn").trigger( "click" );
+        });
+    </script>
+<?php } ?>
+
+
+</body>
+</html>
