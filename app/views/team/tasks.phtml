@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+
+                <div class="page-header">
+                    <h4 class="page-title">Aufgaben</h4>
+                    <ul class="breadcrumbs">
+                        <li class="nav-home">
+                            <a href="http://localhost/verany/tcp/dark/index.php">
+                                <i class="flaticon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="http://localhost/verany/tcp/dark/admin/config.php">Team</a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="config.php">Aufgaben</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="page-inner">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title">
+                                        <h1>Deine Aufgaben</h1>
+                                    </h4>
+                                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                                        <i class="fa fa-plus"></i>
+                                        Hinzufügen
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Modal -->
+                                <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header no-bd">
+                                                <h5 class="modal-title">
+														<span class="fw-light">
+															Neue Aufgabe erstellen
+														</span>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="small">Weise dir selbst oder einem anderen eine Aufgabe zu um sie im Blick zu behalten.</p>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-6 pr-0">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Name</label>
+                                                                <input id="addPosition" type="text" class="form-control" placeholder="BedWars Konzept">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Ersteller</label>
+                                                                <input id="addOffice" type="text" class="form-control" placeholder="Alex, Steve und Notch">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 pr-0">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Priorität</label>
+                                                                <select class="form-control form-control-sm" id="smallSelect">
+                                                                    <option>Sehr gering</option>
+                                                                    <option>Gering</option>
+                                                                    <option>Normal</option>
+                                                                    <option>Hoch</option>
+                                                                    <option>Sehr hoch</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Status</label>
+                                                                <select class="form-control form-control-sm" id="smallSelect">
+                                                                    <option>Erstellt</option>
+                                                                    <option>Überprüfung</option>
+                                                                    <option>In Arbeit</option>
+                                                                    <option>Fertig</option>
+                                                                    <option>Cancelled</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Deadline</label>
+                                                                <input id="addCreator" type="date" class="form-control" placeholder="Alex, Steve und Notch">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer no-bd">
+                                                <button type="button" id="addRowButton" class="btn btn-primary">Hinzufügen</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Schließen</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">https://tcp.verany.net/team/tasks/users/</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="NicoVRNY">
+                                        </div>
+                                    </div>
+                                    <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="add-row_length"><label>Zeige <select name="add-row_length" aria-controls="add-row" class="form-control form-control-sm"><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option></select> Einträge</label></div></div><div class="col-sm-12 col-md-6"><div id="add-row_filter" class="dataTables_filter"><label>ID Suchen:<input type="search" class="form-control form-control-sm" placeholder="ID" aria-controls="add-row"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="add-row" class="display table table-striped table-hover dataTable" role="grid" aria-describedby="add-row_info">
+                                                    <thead>
+                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 25px;">ID</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 120px;">Name</th><th style="width: 90px;" class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Deadline</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Ersteller</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 50px;">Stauts</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 50px;">Priorität</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 50px;">Aufgabe</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Aktion</th></tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr><th rowspan="1" colspan="1">ID</th><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Deadline</th><th rowspan="1" colspan="1">Ersteller</th><th rowspan="1" colspan="1">Status</th><th rowspan="1" colspan="1">Priorität</th><th rowspan="1" colspan="1">Aufgabe</th><th rowspan="1" colspan="1">Aktion</th></tr>
+                                                    </tfoot>
+                                                    <tbody>
+
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1"><button type="button" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                        <td>Mach mal die Webseite</td>
+                                                        <td>03.10.2020 - 18:19 </td>
+                                                        <td>Likqez </td>
+                                                        <td><button class="btn btn-success btn-round ml-auto btn-sm">Fertig</button> </td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm">Hoch</button> </td>
+                                                        <td><button class="btn btn-primary btn-round ml-auto btn-sm" title="Aufgabe ansehen" type="button" id="getTaskInfo">Aufgabe</button> </td>
+                                                        <td>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"><button type="button" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                        <td>FlagWars Map </td>
+                                                        <td>04.10.2020 - 20:00 </td>
+                                                        <td>Hampelmann </td>
+                                                        <td><button class="btn btn-success btn-round ml-auto btn-sm" >Fertig</button> </td>
+                                                        <td><button class="btn btn-info btn-round ml-auto btn-sm" >Normal</button>  </td>
+                                                        <td><button class="btn btn-primary btn-round ml-auto btn-sm" >Aufgabe</button> </td>
+                                                        <td>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"><button type="button" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                        <td>Spawn </td>
+                                                        <td>31.10.2020 - 23:59 </td>
+                                                        <td>NicoVRNY </td>
+                                                        <td><button class="btn btn-warning btn-round ml-auto btn-sm" >In Arbeit</button> </td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm" >Hoch</button> </td>
+                                                        <td><button class="btn btn-primary btn-round ml-auto btn-sm" >Aufgabe</button> </td>
+                                                        <td>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"><button type="button" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                        <td>BuildSystem </td>
+                                                        <td>31.12.2020 - 23:59 </td>
+                                                        <td>marie2109 </td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm" >Offen</button> </td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm" >Hoch</button> </td>
+                                                        <td><button class="btn btn-primary btn-round ml-auto btn-sm" >Aufgabe</button> </td>
+                                                        <td>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"><button type="button" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                        <td>Mineopoly Map </td>
+                                                        <td>31.12.2020 - 20:00 </td>
+                                                        <td>Dani_R </td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm">Offen</button></td>
+                                                        <td><button class="btn btn-danger btn-round ml-auto btn-sm">Hoch</button>  </td>
+                                                        <td><button class="btn btn-primary btn-round ml-auto btn-sm">Aufgabe</button>  </td>
+                                                        <td>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr></tbody>
+                                                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="add-row_info" role="status" aria-live="polite">Zeige 1 von 5 Einträgen</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="add-row_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="add-row_previous"><a href="#" aria-controls="add-row" data-dt-idx="0" tabindex="0" class="page-link">Letzte Seite</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="add-row" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="add-row" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="add-row_next"><a href="#" aria-controls="add-row" data-dt-idx="3" tabindex="0" class="page-link">Nächste Seite</a></li></ul></div></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+<script>
+    var SweetAlert2Demo = function() {
+
+        var initDemos = function() {
+
+            $(document).delegate('#deleteAlert', 'click', function(e){
+                swal({
+                    title: 'Sicher?',
+                    text: "Die Datei wird endgültig gelöscht!",
+                    type: 'warning',
+                    buttons:{
+                        cancel: {
+                            visible: true,
+                            text : 'Nein, abbrechen!',
+                            className: 'btn btn-danger'
+                        },
+                        confirm: {
+                            text : 'Ja, löschen!',
+                            className : 'btn btn-success'
+                        }
+                    }
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        swal("Erfolgreich gelöscht!", {
+                            icon: "success",
+                            buttons : {
+                                confirm : {
+                                    className: 'btn btn-success'
+                                }
+                            }
+                        });
+                    } else {
+                        swal("Deine Datei ist sicher!", {
+                            buttons : {
+                                confirm : {
+                                    className: 'btn btn-success'
+                                }
+                            }
+                        });
+                    }
+                });
+            })
+
+            $(document).delegate('#copySuccessAlert', 'click', function(e) {
+                swal("Kopiert!", "Der Key ist jetzt in deiner Zwischenablage.", {
+                    icon : "success",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-success'
+                        }
+                    },
+                });
+            })
+
+            $(document).delegate('#downloadSuccessAlert', 'click', function(e) {
+                swal("Download gestartet!", "Dein Download wurde gestartet.", {
+                    icon : "success",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-success'
+                        }
+                    },
+                });
+            });
+
+        };
+
+        return {
+            init: function() {
+                initDemos();
+            },
+        };
+    }();
+
+    jQuery(document).ready(function() {
+        SweetAlert2Demo.init();
+    });
+</script>
+</body>
+</html>

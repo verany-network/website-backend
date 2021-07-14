@@ -1,0 +1,738 @@
+<?php $db = new database(); ?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+                <div class="page-header">
+                    <h4 class="page-title">Team Auflistung</h4>
+                    <ul class="breadcrumbs">
+                        <li class="nav-home">
+                            <a href="http://localhost/verany/tcp/dark/">
+                                <i class="flaticon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Team</a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Auflistung</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <?php if(!$db->getUserbyGroup("Administrator") === false) { ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Administratoren</b></a>
+                <div class="row">
+                    <?php
+                        foreach ($db->getUserbyGroup("Administrator") as $user ) {
+                        echo ' 
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-header" style="background-image: url("/tcp/assets/img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                        <div class="profile-picture">
+                            <div class="avatar avatar-xl">
+                                <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="user-profile text-center">
+                            <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                            <div class="job">Administrator</div>
+                            <div class="social-media">
+                                <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                    <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                </a>
+                                <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                    <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                </a>
+                                <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                    <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                </a>
+                                <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                    <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                </a>
+                            </div>
+                            <div class="view-profile">
+                                <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                            </div>                                                            
+                        </div>
+                    </div>
+                    
+                     
+                    <div class="card-footer">
+                        <div class="row user-stats text-center">
+                            <div class="col">
+                                <div class="number" style="color: #1572e8"></div>
+                                <div class="title">Spielstunden</div>
+                            </div>
+                            <div class="col">
+                                <div class="number"  style="color: #1572e8">1000</div>
+                                <div class="title">Teampunkte</div>
+                            </div>
+                            <div class="col">
+                                <div class="number"  style="color: #1572e8">134</div>
+                                <div class="title">Erledigte Supports</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Senior Moderator") === false) { ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Senior Moderator</b></a>
+                <div class="row">
+                    <?php
+                        foreach ($db->getUserbyGroup("Senior Moderator") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("/tcp/assets/img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">SrModerator</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Moderator") === false) { ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Moderator</b></a>
+                <div class="row">
+                    <?php
+                        foreach ($db->getUserbyGroup("Moderator") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Moderator</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Supporter") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Supporter</b></a>
+                <div class="row">
+                    <?php
+                        foreach ($db->getUserbyGroup("Supporter") as $user) {
+                            echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/' . $db->returnUsername($user["uuid"]) . '/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">' . $db->returnUsername($user["uuid"]) . '</div>
+                                    <div class="job">Supporter</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">' . $db->getOnlineTimebyName("CuzImMartin") . '</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                        }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Helper") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Helper</b></a>
+                <div class="row">
+                    <?php
+                        foreach ($db->getUserbyGroup("Helper") as $user) {
+                            echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/' . $db->returnUsername($user["uuid"]) . '/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">' . $db->returnUsername($user["uuid"]) . '</div>
+                                    <div class="job">Helper</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">' . $db->getOnlineTimebyName($user) . '</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                        }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Senior Developer") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Senior Developer</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Senior Developer") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Senior Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Developer") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Developer</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Developer") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Test Developer") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Test Developer</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Test Developer") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Test Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Senior Content") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Senior Content</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Senior Content") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Test Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Content") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Content</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Content") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Test Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php }
+                if(!$db->getUserbyGroup("Test Content") === false) {
+                ?>
+                <a href="." class="btn btn-block"  style="background-color: #AA0000; color: white; font-size: 20px"><b>Test Content</b></a>
+                <div class="row">
+                    <?php
+                    $db = new database();
+                    foreach ($db->getUserbyGroup("Test Content") as $user ) {
+                        echo ' 
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header" style="background-image: url("http://localhost/verany/tcp/assets//img/user/profile_banners/userBanner-NicoVRNY_1.jpg")">
+                                <div class="profile-picture">
+                                    <div class="avatar avatar-xl">
+                                        <img src="https://mc-heads.net/avatar/'.$db->returnUsername($user["uuid"]).'/" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="user-profile text-center">
+                                    <div class="name" style="color: #bbbbbb">'. $db->returnUsername($user["uuid"]).'</div>
+                                    <div class="job">Test Developer</div>
+                                    <div class="social-media">
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="mailto:kontakt@nicokempe.de">
+                                            <span class="btn-label just-icon"><i class="fas fa-envelope"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm btn-link" href="https://www.twitter.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-twitter"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.youtube.com/NicoVRNY">
+                                            <span class="btn-label just-icon"><i class="fab fa-youtube"></i> </span>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="https://www.github.com/nicokempe">
+                                            <span class="btn-label just-icon"><i class="fab fa-github"></i> </span>
+                                        </a>
+                                    </div>
+                                    <div class="view-profile">
+                                        <a href="/profile/users/nicovrny-1.php" class="btn btn-primary btn-block">Profil anzeigen</a>
+                                    </div>                                                            
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row user-stats text-center">
+                                    <div class="col">
+                                        <div class="number" style="color: #1572e8">'.$db->getOnlineTimebyName($user).'</div>
+                                        <div class="title">Spielstunden</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">1000</div>
+                                        <div class="title">Teampunkte</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="number"  style="color: #1572e8">134</div>
+                                        <div class="title">Erledigte Supports</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                    }
+                    ?>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+</body>
+</html>

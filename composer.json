@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mongodb/mongodb": "^1.8",
+        "spirit55555/php-minecraft": "^1.2"
+    }
+}

@@ -1,4 +1,5 @@
-/.idea
-/target
-/src/main/resources/data.json
-Verany-Web-Backend.iml
+node_modules
+config/config.ini
+vandor/
+.idea
+vendor

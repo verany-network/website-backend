@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+
+                <div class="page-header">
+                    <h4 class="page-title">Dokumente</h4>
+                    <ul class="breadcrumbs">
+                        <li class="nav-home">
+                            <a href="http://localhost/verany/tcp/dark/index.php">
+                                <i class="flaticon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="http://localhost/verany/tcp/dark/admin/config.php">Team</a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="config.php">Dokumente</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="page-inner">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title">Dokumente</h4>
+                                    <?php if($this->perm_docadd) { ?>
+                                    <button id="adddoc" class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                                        <i class="fa fa-plus"></i>
+                                        Hinzufügen
+                                    </button>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Modal -->
+                                <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header no-bd">
+                                                <h5 class="modal-title">
+														<span class="fw-light">
+															Neues Dokument
+														</span>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <form action="" method="post" enctype="multipart/form-data" >
+                                            <div class="modal-body">
+                                                <p class="small">Erstelle ein neues Dokument, vergewissere dich aber dass du alle Inhalte richtig eingetragen hast.</p>
+                                                    <div class="row">
+                                                        <div class="col-md-6 pr-0">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Name</label>
+                                                                <input name="doc_name" id="addPosition" required type="text" class="form-control" placeholder="Team Meetings Skript 20.08.20" title="Trage hier den Namen des Dokuments ein zum Beispiel: Servertrailer">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 pr-1">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Ersteller</label>
+                                                                <input name="doc_ersteller" id="addPosition" required type="text" class="form-control" placeholder="Steve, Alex und Notch" title="Trage hier den / die Ersteller des Dokuments ein.">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Dokument</label>
+                                                                <input name="doc_file" id="addPosition" type="file" required class="form-control" title="Wähle das richtige Dokument aus indem du es hier rein ziehst.">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer no-bd">
+                                                <button type="submit" id="addRowButton" class="btn btn-primary">Hinzufügen</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Schließen</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="add-row" class="display table table-striped table-hover dataTable" role="grid" aria-describedby="add-row_info">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 25px;">ID</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 450px;">Dateiname</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 450px;">Dateigröße</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 150px;">Ersteller</th>
+                                                            <th style="width: 120px;" class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Dokument</th>
+                                                            <th style="width: 127px;" class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Aktion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th rowspan="1" colspan="1">ID</th>
+                                                            <th rowspan="1" colspan="1">Name</th>
+                                                            <th rowspan="1" colspan="1">Dateigröße</th>
+                                                            <th rowspan="1" colspan="1">Ersteller</th>
+                                                            <th rowspan="1" colspan="1">Dokument</th>
+                                                            <th rowspan="1" colspan="1">Aktion</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <?php
+                                                        $db = new database();
+                                                        foreach ($db->getalldoc() as $row) {
+                                                        ?>
+                                                        <tr role="row">
+                                                            <td class="sorting_1"><button type="button" value="<?php echo $row['id'];?>" class="btn btn-primary btn-round ml-auto btn-sm " id="copySuccessAlert"><i class="fas fa-copy"></i></button></td>
+                                                            <td><?php echo $row['name']; ?></td>
+                                                            <td><?php echo $row['size']; ?>kb</td>
+                                                            <td><?php echo $row['ersteller']; ?></td>
+                                                            <td><form action="" method="post"><input type="hidden" name="doc_download" value="<?php echo $row['id'];?>"><button type="submit" class="btn btn-primary btn-round ml-auto btn-sm" id="downloadSuccessAlert">Herunterladen</button></form></td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Editieren">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Entfernen" id="deleteAlert">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+<script>
+
+    $('#add-row').DataTable({
+        "pageLength": 5,
+    });
+
+    var SweetAlert2Demo = function() {
+
+        var initDemos = function() {
+
+            $(document).delegate('#deleteAlert', 'click', function(e){
+                swal({
+                    title: 'Sicher?',
+                    text: "Die Datei wird endgültig gelöscht!",
+                    type: 'warning',
+                    buttons:{
+                        cancel: {
+                            visible: true,
+                            text : 'Nein, abbrechen!',
+                            className: 'btn btn-danger'
+                        },
+                        confirm: {
+                            text : 'Ja, löschen!',
+                            className : 'btn btn-success'
+                        }
+                    }
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        swal("Erfolgreich gelöscht!", {
+                            icon: "success",
+                            buttons : {
+                                confirm : {
+                                    className: 'btn btn-success'
+                                }
+                            }
+                        });
+                    } else {
+                        swal("Deine Datei ist sicher!", {
+                            buttons : {
+                                confirm : {
+                                    className: 'btn btn-success'
+                                }
+                            }
+                        });
+                    }
+                });
+            })
+
+            $(document).delegate('#copySuccessAlert', 'click', function(e) {
+                swal("Kopiert!", "Der Key ist jetzt in deiner Zwischenablage.", {
+                    icon : "success",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-success'
+                        }
+                    },
+                });
+            })
+
+            $(document).delegate('#downloadSuccessAlert', 'click', function(e) {
+                swal("Download gestartet!", "Dein Download wurde gestartet.", {
+                    icon : "success",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-success'
+                        }
+                    },
+                });
+            });
+
+        };
+
+        return {
+            init: function() {
+                initDemos();
+            },
+        };
+    }();
+
+    jQuery(document).ready(function() {
+        SweetAlert2Demo.init();
+    });
+
+
+</script>
+<?php
+if($this->adddoc) { ?>
+    <script>
+        $( document ).ready(function() {
+            $("#adddoc").trigger( "click" );
+        });
+    </script>
+<?php } ?>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<?php
+$sys = new systemUsage();
+?><!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+                <div class="page-header">
+                    <h4 class="page-title">Konfiguration</h4>
+                    <ul class="breadcrumbs">
+                        <li class="nav-home">
+                            <a href="http://localhost/verany/tcp/dark/index.php">
+                                <i class="flaticon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="http://localhost/verany/tcp/dark/admin/config.php">Administration</a>
+                        </li>
+                        <li class="separator">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="config.php">Konfiguration</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="page-inner">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="card card-stats card-round">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-icon">
+                                            <div class="icon-big text-center icon-success bubble-shadow-small">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col col-stats ml-3 ml-sm-0">
+                                            <div class="numbers">
+                                                <p class="card-category">Netzwerk Uptime</p>
+                                                <h4 class="card-title">29 Tage, 2 Stunden</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="card card-stats card-round">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-icon">
+                                            <div class="icon-big text-center icon-success bubble-shadow-small">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col col-stats ml-3 ml-sm-0">
+                                            <div class="numbers">
+                                                <p class="card-category">Netzwerk Status</p>
+                                                <h4 class="card-title">Online</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="card card-stats card-round">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-icon">
+                                            <div class="icon-big text-center icon-success bubble-shadow-small">
+                                                <i class="fab fa-teamspeak"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="col col-stats ml-3 ml-sm-0">
+                                            <div class="numbers">
+                                                <p class="card-category">TeamSpeak Status</p>
+                                                <h4 class="card-title">Online</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="card card-stats card-round">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-icon">
+                                            <div class="icon-big text-center icon-success bubble-shadow-small">
+                                                <i class="fab fa-discord"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col col-stats ml-3 ml-sm-0">
+                                            <div class="numbers">
+                                                <p class="card-category">Discord Status</p>
+                                                <h4 class="card-title">Online</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p class="card-category">CPU</p>
+                                            <p class="text-muted">CPU Auslastung</p>
+                                            <br>
+                                        </div>
+                                        <div class="text-right text-success">
+                                            <?php echo $sys->get_server_cpu_usage()?>%
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-primary" style="width: <?php echo $sys->get_server_cpu_usage()?>% !important;" ></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5><b>Arbeitsspeicher</b></h5>
+                                            <p class="text-muted">RAM Auslastung</p>
+                                            <br>
+                                        </div>
+                                        <div class="text-right text-success">
+                                            <?php echo $sys->get_server_memory_usage()?>%
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-primary" style="width: <?php echo $sys->get_server_memory_usage()?>% !important;"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5><b>Festplatte</b></h5>
+                                            <p class="text-muted">Speicher Auslastung</p>
+                                            <br>
+                                        </div>
+                                        <div class="text-right text-success">
+                                            <?php echo $sys->get_server_disk_usage()?>%
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-primary" style="width: <?php echo $sys->get_server_disk_usage()?>% !important;"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5><b>Traffic</b></h5>
+                                            <p class="text-muted">Traffic Auslastung</p>
+                                            <br>
+                                        </div>
+                                        <div class="text-right text-success">
+                                            25%
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-primary w-25" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="page-category" style="padding: 2rem">
+
+                    <div class="row">
+
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card"style="padding: 2rem">
+                                <div class="card-header">
+                                    <h4 class="card-title">Serverlisten Konfiguration</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group form-group-default">
+                                            <label>Main Domain</label>
+                                            <input id="Name" type="text" class="form-control" placeholder="verany.net" disabled="false" style="background-color: #1a2035; background: #1a2035;">
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>BungeeCord Server</label>
+                                            <select class="form-control" id="formGroupDefaultSelect">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group form-floating-label">
+                                            <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" placeholder="0">
+                                            <label for="inputFloatingLabel" class="placeholder">Minimale Spieleranzahl</label>
+                                        </div>
+                                        <br>
+                                        <div class="form-group form-floating-label">
+                                            <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" placeholder="128">
+                                            <label for="inputFloatingLabel" class="placeholder">Maximale Spieleranzahl</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card"style="padding: 2rem">
+                                <div class="card-header">
+                                    <h4 class="card-title">Nachricht des Tages</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-3 col-md-3">
+                                            <div class="nav flex-column nav-pills nav-primary nav-pills-no-bd nav-pills-icons" id="v-pills-tab-with-icon" role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link active show" id="v-pills-home-tab-icons" data-toggle="pill" href="#v-pills-home-icons" role="tab" aria-controls="v-pills-home-icons" aria-selected="true">
+                                                    <i class="fas fa-bullhorn"></i>
+                                                    Online
+                                                </a>
+                                                <a class="nav-link" id="v-pills-profile-tab-icons" data-toggle="pill" href="#v-pills-profile-icons" role="tab" aria-controls="v-pills-profile-icons" aria-selected="false">
+                                                    <i class="fas fa-wrench"></i>
+                                                    Wartungen
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-7 col-md-8">
+                                            <div class="tab-content" id="v-pills-with-icon-tabContent">
+                                                <div class="tab-pane fade active show" id="v-pills-home-icons" role="tabpanel" aria-labelledby="v-pills-home-tab-icons">
+                                                    <ul class="nav nav-pills nav-primary nav-pills-no-bd" id="pills-tab-without-border" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" id="pills-home-tab-nobd" data-toggle="pill" href="#pills-home-nobd" role="tab" aria-controls="pills-home-nobd" aria-selected="true">1</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">2</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false">3</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false"><i class="fas fa-plus"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <div class="input-icon">
+																<span class="input-icon-addon">
+																	1
+																</span>
+                                                            <input type="text" class="form-control" placeholder="     §8◗§7◗ §b§lVerany §8▏ §7§oinnovative adventures§8! §8[§b1§8.§b16§8.§b1§8]    ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-icon">
+																<span class="input-icon-addon">
+																	2
+																</span>
+                                                            <input type="text" class="form-control" placeholder="            §8× §7Twitter §8• @§b§lVeranyNET §8×">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
+                                                    <ul class="nav nav-pills nav-primary nav-pills-no-bd" id="pills-tab-without-border" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" id="pills-home-tab-nobd" data-toggle="pill" href="#pills-home-nobd" role="tab" aria-controls="pills-home-nobd" aria-selected="true">1</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">2</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false">3</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false"><i class="fas fa-plus"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <div class="input-icon">
+																<span class="input-icon-addon">
+																	1
+																</span>
+                                                            <input type="text" class="form-control" placeholder="     §8◗§7◗ §b§lVerany §8▏ §7§oinnovative adventures§8! §8[§b1§8.§b16§8.§b1§8]    ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-icon">
+																<span class="input-icon-addon">
+																	2
+																</span>
+                                                            <input type="text" class="form-control" placeholder="            §8× §cMaintenance §8• §7Curently in work§8. §8×">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <h4 class="card-title">Maintenance Whitelist</h4>
+                                        <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                                            <i class="fa fa-plus"></i>
+                                            Hinzufügen
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header no-bd">
+                                                    <h5 class="modal-title">
+														<span class="fw-light">
+															Spieler zur Whitelist hinzufügen
+														</span>
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="small">Füge einen Spieler zur Whitelist hinzu damit dieser das Netzwerk auch während Wartungsarbeiten betreten kann. Außerdem kannst du Spielern Zugang auf Closed Beta Dienste anbieten.</p>
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Spieler</label>
+                                                                    <input id="addName" type="text" class="form-control" placeholder="Minecraft Spielername">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 pr-0">
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Team member</label>
+                                                                    <select class="form-control form-control-sm" id="smallSelect">
+                                                                        <option>No</option>
+                                                                        <option>Yes</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Beta</label>
+                                                                    <select class="form-control form-control-sm" id="smallSelect">
+                                                                        <option>No</option>
+                                                                        <option>Yes</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer no-bd">
+                                                    <button type="button" id="addRowButton" class="btn btn-primary">Hinzufügen</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Schließen</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="add-row_length"><label>Zeige <select name="add-row_length" aria-controls="add-row" class="form-control form-control-sm"><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option></select> Einträge</label></div></div><div class="col-sm-12 col-md-6"><div id="add-row_filter" class="dataTables_filter"><label>Spieler suchen:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="add-row"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="add-row" class="display table table-striped table-hover dataTable" role="grid" aria-describedby="add-row_info">
+                                                        <thead>
+                                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 356px;">Spieler</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 521px;">Beta</th><th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 305px;">Team</th><th style="width: 127px;" class="sorting" tabindex="0" aria-controls="add-row" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Aktion</th></tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr><th rowspan="1" colspan="1">Spieler</th><th rowspan="1" colspan="1">Beta</th><th rowspan="1" colspan="1">Team</th><th rowspan="1" colspan="1">Aktionen</th></tr>
+                                                        </tfoot>
+                                                        <tbody>
+
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">NicoVRNY</td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Beta Access">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Team">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Change whitelist entry">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove from whitelist">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr><tr role="row" class="odd">
+                                                            <td class="sorting_1">SlashKick</td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Beta Access">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Team">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Change whitelist entry">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove from whitelist">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr><tr role="row" class="even">
+                                                            <td class="sorting_1">Dani_R</td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Beta Access">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Team">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Change whitelist entry">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove from whitelist">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr><tr role="row" class="odd">
+                                                            <td class="sorting_1">tylix</td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Beta Access">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Team">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Change whitelist entry">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove from whitelist">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr><tr role="row" class="even">
+                                                            <td class="sorting_1">Likqez</td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Beta Access">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-success" data-original-title="Team">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-button-action">
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Change whitelist entry">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove from whitelist">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr></tbody>
+                                                    </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="add-row_info" role="status" aria-live="polite">Zeige 1 von 5 von insgesamt 25 Einträgen</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="add-row_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="add-row_previous"><a href="#" aria-controls="add-row" data-dt-idx="0" tabindex="0" class="page-link">Letzte Seite</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="add-row" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="add-row" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="add-row_next"><a href="#" aria-controls="add-row" data-dt-idx="3" tabindex="0" class="page-link">Nächste Seite</a></li></ul></div></div></div></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/verany/www/terms/imprint.php">
+                                    Impressum
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/verany/www/terms/privacy.php">
+                                    Datenschutzerklärung
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright ml-auto">
+                        © <script>new Date().getFullYear()>2017&&document.write("2017-"+new Date().getFullYear());</script> Copyright Verany.net - Entwickelt von <a href="https://www.twitter.com/NicoVRNY">NicoVRNY</a> und <a href="https://www.themekita.com">ThemeKita</a>.
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+</body>
+</html>

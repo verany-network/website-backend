@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+                <div class="mt-2 mb-4">
+                    <h2 class="text-white pb-2">Willkommen zurück, <?php echo $_SESSION['profile']['username'];?>!</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-dark bg-primary">
+                            <div class="card-body pb-0">
+                                <div class="h1 fw-bold float-right"></div>
+                                <h2 class="mb-2"> 15
+                                    <?php /*
+                                    $db = new database();
+                                    $db->getOnlinePlayers()*/ ?>
+                                </h2>
+                                <p>Spieler sind online</p>
+                                <div class="pull-in sparkline-fix chart-as-background">
+                                    <div id="lineChart"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-dark bg-primary">
+                            <div class="card-body pb-0">
+                                <div class="h1 fw-bold float-right">-3%</div>
+                                <h2 class="mb-2">27</h2>
+                                <p>Neue Spieler in diesem Monat</p>
+                                <div class="pull-in sparkline-fix chart-as-background">
+                                    <div id="lineChart2"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-dark bg-primary">
+                            <div class="card-body pb-0">
+                                <div class="h1 fw-bold float-right">+37%</div>
+                                <h2 class="mb-2">2.135</h2>
+                                <p>Verbindungen in diesem Monat</p>
+                                <div class="pull-in sparkline-fix chart-as-background">
+                                    <div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-head-row">
+                                    <div class="card-title">Statistiken zu den Verbindungen auf das Netzwerk</div>
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
+												<span class="btn-label">
+													<i class="fa fa-download"></i>
+												</span>
+                                            Herunterladen
+                                        </a>
+                                        <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+												<span class="btn-label">
+													<i class="fa fa-print"></i>
+												</span>
+                                            Drucken
+                                        </a>
+                                        <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+												<span class="btn-label">
+													<i class="fa fa-share"></i>
+												</span>
+                                            Teilen
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="min-height: 375px">
+                                    <canvas id="statisticsChart"></canvas>
+                                </div>
+                                <div id="myChartLegend"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <div class="card-title">Verkäufe in diesem Quartal</div>
+                                <div class="card-category">01. Oktober 2020 - 31. Dezember 2020</div>
+                            </div>
+                            <div class="card-body pb-0">
+                                <div class="mb-4 mt-2">
+                                    <h1>00.00 €</h1>
+                                </div>
+                                <div class="pull-in">
+                                    <canvas id="dailySalesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-primary bg-primary-gradient">
+                            <div class="card-body">
+                                <h4 class="mb-1 fw-bold">Prozentualer Fortschritt der Aufgaben</h4>
+                                <div id="task-complete" class="chart-circle mt-4 mb-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-card-no-pd">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-head-row">
+                                    <h4 class="card-title">Statistiken zur Herkunft der Verbindungen</h4>
+                                    <div class="card-tools">
+                                        <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="table-responsive table-hover table-sales">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="flag">
+                                                            <img src="../assets//img/flags/de.png" alt="indonesia">
+                                                        </div>
+                                                    </td>
+                                                    <td>Deutschland</td>
+                                                    <td class="text-right">
+                                                        268
+                                                    </td>
+                                                    <td class="text-right">
+                                                        36,9%
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="flag">
+                                                            <img src="../assets//img/flags/us.png" alt="united states">
+                                                        </div>
+                                                    </td>
+                                                    <td>USA</td>
+                                                    <td class="text-right">
+                                                        103
+                                                    </td>
+                                                    <td class="text-right">
+                                                        14,2%
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="flag">
+                                                            <img src="../assets//img/flags/at.png" alt="australia">
+                                                        </div>
+                                                    </td>
+                                                    <td>Österreich</td>
+                                                    <td class="text-right">
+                                                        61
+                                                    </td>
+                                                    <td class="text-right">
+                                                        8,4%
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="flag">
+                                                            <img src="../assets//img/flags/ch.png" alt="russia">
+                                                        </div>
+                                                    </td>
+                                                    <td>Schweiz</td>
+                                                    <td class="text-right">
+                                                        47
+                                                    </td>
+                                                    <td class="text-right">
+                                                        6,5%
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="flag">
+                                                            <img src="../assets//img/flags/fr.png" alt="china">
+                                                        </div>
+                                                    </td>
+                                                    <td>Frankreich</td>
+                                                    <td class="text-right">
+                                                        34
+                                                    </td>
+                                                    <td class="text-right">
+                                                        4,7%
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mapcontainer">
+                                            <div id="map-example" class="vmap"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+<script>
+    //Notify
+    $.notify({
+        icon: 'flaticon-alarm-1',
+        title: 'Willkommen zurück, <?php echo $_SESSION['profile']['username']?>!',
+        message: 'Hier solltest du jederzeit auf den neusten Stand gebracht werden.',
+    },{
+        type: 'info',
+        placement: {
+            from: "top",
+            align: "center"
+        },
+        time: 500,
+    });
+
+    $('#lineChart').sparkline([102,109,120,99,110,105,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: 'rgba(255, 255, 255, .5)',
+        fillColor: 'rgba(255, 255, 255, .15)'
+    });
+
+    $('#lineChart2').sparkline([99,125,122,105,110,124,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: 'rgba(255, 255, 255, .5)',
+        fillColor: 'rgba(255, 255, 255, .15)'
+    });
+
+    $('#lineChart3').sparkline([105,103,123,100,95,105,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: 'rgba(255, 255, 255, .5)',
+        fillColor: 'rgba(255, 255, 255, .15)'
+    });
+</script>
+</body>
+</html>

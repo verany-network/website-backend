@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <?php include ROOT_PATH."/app/views/forms/head.phtml";?>
+</head>
+<body data-background-color="dark">
+<div class="wrapper">
+    <?php include ROOT_PATH."/app/views/forms/mainheader.phtml";?>
+
+    <!-- Sidebar -->
+    <?php include ROOT_PATH."/app/views/forms/sidebar.phtml";?>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="panel-header bg-primary-gradient">
+                <div class="page-inner py-5">
+                    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                        <div>
+                            <h2 class="text-white pb-2 fw-bold">Server Dashboard</h2>
+                            <h5 class="text-white op-7 mb-2">Internes Panel für das Verany Development Team zur Übersicht der Server.</h5>
+                        </div>
+                        <div class="ml-md-auto py-2 py-md-0">
+                            <a href="#" class="btn btn-primary btn-round">Server starten</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-inner mt--5">
+                <div class="row row-card-no-pd mt--2">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card card-stats card-round">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center">
+                                            <i class="fas fa-microchip text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-stats">
+                                        <div class="numbers">
+                                            <p class="card-category">CPU</p>
+                                            <h4 class="card-title">12%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card card-stats card-round">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center">
+                                            <i class="fas fa-memory text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-stats">
+                                        <div class="numbers">
+                                            <p class="card-category">Arbeitsspeicher</p>
+                                            <h4 class="card-title">13%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card card-stats card-round">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center">
+                                            <i class="fas fa-hdd text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-stats">
+                                        <div class="numbers">
+                                            <p class="card-category">Festplatte</p>
+                                            <h4 class="card-title">15%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card card-stats card-round">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center">
+                                            <i class="fas fa-traffic-light text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-stats">
+                                        <div class="numbers">
+                                            <p class="card-category">Traffic</p>
+                                            <h4 class="card-title">12%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include ROOT_PATH."/app/views/forms/footer.phtml";?>
+    </div>
+
+</div>
+<?php include ROOT_PATH."/app/views/forms/scripts.phtml";?>
+<script>
+    $('#lineChart').sparkline([102,109,120,99,110,105,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: '#177dff',
+        fillColor: 'rgba(23, 125, 255, 0.14)'
+    });
+
+    $('#lineChart2').sparkline([99,125,122,105,110,124,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: '#f3545d',
+        fillColor: 'rgba(243, 84, 93, .14)'
+    });
+
+    $('#lineChart3').sparkline([105,103,123,100,95,105,115], {
+        type: 'line',
+        height: '70',
+        width: '100%',
+        lineWidth: '2',
+        lineColor: '#ffa534',
+        fillColor: 'rgba(255, 165, 52, .14)'
+    });
+</script>
+</body>
+</html>
